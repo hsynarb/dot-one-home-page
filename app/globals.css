@@ -1,3 +1,4 @@
+@config "./../tailwind.config.ts";
 @import "tailwindcss";
 
 :root {
@@ -16,6 +17,37 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@layer utilities {
+  .custom-scrollbar {
+    scroll-margin-top: 40px;
+    scroll-padding-bottom: 40px;
+  }
+  /* Custom scrollbar styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 12px; /* Adjust width as needed */
+    border: transparent 10px solid;
+    box-shadow: inset;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: white; /* Track background color */
+    border-radius: 40px;
+    border: transparent 10px solid;
+    box-shadow: inset;
+    scroll-margin-top: 20px;
+    scroll-padding-top: 20px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: black; /* Thumb color */
+    border-radius: 40px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Thumb color on hover */
   }
 }
 
