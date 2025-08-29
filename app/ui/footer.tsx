@@ -1,10 +1,12 @@
 import Image from "next/image";
 import FooterLinks from "./footerLinks";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import useIsVisible from "@/app/hooks/useIsVisible";
 import classNames from "classnames";
+import { AnimationDurationContext } from "@/app/hooks/animationContext";
 
 export default function Footer() {
+  const duration = useContext(AnimationDurationContext);
   const footerRef = useRef(null);
   const isFooterVisible = useIsVisible(footerRef);
   const group1Links = [
@@ -27,8 +29,8 @@ export default function Footer() {
     <div
       ref={footerRef}
       className={classNames(
-        "flex flex-col justify-between items-center mx-[108px] pt-32",
-        "transform transition-all ease-in-out duration-2000",
+        "flex flex-col justify-between items-center mx-[108px] pt-[184px] pb-4",
+        `transform transition-all ease-in-out duration-${duration}`,
         {
           "opacity-0 translate-y-[100%]": !isFooterVisible,
           "opacity-100 translate-y-0": isFooterVisible,

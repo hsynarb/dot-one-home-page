@@ -1,8 +1,13 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import useIsVisible from "@/app/hooks/useIsVisible";
 import classNames from "classnames";
 
+import Styles from "./oneIntroduction.module.css";
+import { AnimationDurationContext } from "@/app/hooks/animationContext";
+
 export default function OneIntroduction() {
+  const duration = useContext(AnimationDurationContext);
+
   const oneRef = useRef<HTMLDivElement>(null);
   const introRef = useRef(null);
   const sloganRef = useRef(null);
@@ -18,7 +23,7 @@ export default function OneIntroduction() {
         <div
           ref={oneRef}
           className={classNames(
-            "flex flex-col transform transition-all ease-in duration-900",
+            `flex flex-col transform transition-all ease-in-out duration-${duration}`,
             {
               "opacity-0 translate-x-[100%]": !isOneVisible,
               "opacity-100 translate-x-0": isOneVisible,
@@ -33,7 +38,7 @@ export default function OneIntroduction() {
         <p
           ref={introRef}
           className={classNames(
-            "text-sm text-justify transform transition-all ease-in duration-900",
+            `text-sm text-justify transform transition-all ease-in-out duration-${duration}`,
             {
               "opacity-0 -translate-x-[100%]": !isOneVisible,
               "opacity-100 translate-x-0": isOneVisible,
@@ -46,14 +51,21 @@ export default function OneIntroduction() {
       <div
         ref={sloganRef}
         className={classNames(
+          "relative",
           "pt-[38px] px-[23px] mx-[108px] bg-[#F5F5F5] rounded-4xl",
-          "transform transition-all ease-in duration-900",
+          `transform transition-all ease-in-out duration-${duration}`,
           {
             "opacity-0 translate-y-40": !isOneVisible,
             "opacity-100 translate-y-0": isOneVisible,
           }
         )}
       >
+        <div className={classNames(Styles.hex, Styles.left)} />
+        <div className={classNames(Styles.hex, Styles["mid-left"])} />
+        <div className={classNames(Styles.hex, Styles["mid-right"])} />
+        <div className={classNames(Styles.hex, Styles.right)} />
+
+        <div className="absolute top-[100%] left-0 w-100 h-23 bg-white z-4 w-full" />
         <div className="flex flex-col items-center pb-[52px] px-[192px]">
           <p className="whitespace-nowrap">
             {

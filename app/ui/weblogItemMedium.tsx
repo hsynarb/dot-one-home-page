@@ -11,7 +11,8 @@ export default function WeblogItemMedium({ className }: WeblogItemMediumProps) {
     <div
       className={classNames(
         className,
-        "p-7 rounded-4xl bg-[#F5F5F5] hover:bg-[#141414]"
+        "group p-7 rounded-4xl bg-[#F5F5F5] hover:bg-[#141414]",
+        "transition-all ease-in-out duration-1500"
       )}
     >
       <div className="flex">
@@ -22,22 +23,29 @@ export default function WeblogItemMedium({ className }: WeblogItemMediumProps) {
             <CardTag text="هواپیما" />
             <CardTag text="هواپیما" />
           </div>
-          <div className="group">
-            <p className="font-semibold text-lg text-black group-hover:text-white mt-12 mb-4">
+          <div
+            className={classNames(
+              "pl-2",
+              "text-black group-hover:text-white",
+              "transition-all ease-in-out duration-1500"
+            )}
+          >
+            <p className="font-semibold text-lg mt-12 mb-4">
               {"لورم ایپسوم متن ساختگی!"}
             </p>
-            <p className="text-sm text-black text-justify group-hover:text-white">
+            <p className="text-sm text-justify">
               {
                 "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است..."
               }
             </p>
           </div>
-          <div className="flex gap-2 mt-16">
-            <Image
-              src={"/calendar-edit.svg"}
-              width={14}
-              height={14}
-              alt="calendar icon"
+          <div className="relative flex gap-2 mt-16 group-hover:text-white transition-all ease-in-out duration-1500">
+            <div
+              className={classNames(
+                "aspect-[14/14] w-[14px] bg-[url('/calendar-edit.svg')]",
+                "group-hover:bg-[url('/calendar-edit-white.svg')]",
+                "transition-all ease-in-out duration-900"
+              )}
             />
             <span className="text-[10px]">{"۲۴ فروردین ۱۴۰۴"}</span>
           </div>
@@ -49,7 +57,18 @@ export default function WeblogItemMedium({ className }: WeblogItemMediumProps) {
             fill
             className="object-cover rounded-lg"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#F5F5F5]/100 to-transparent to-80%" />
+          <div
+            className={classNames(
+              "absolute inset-0 bg-gradient-to-l from-[#F5F5F5]/100 to-transparent to-80% opacity-100 group-hover:opacity-0",
+              "transition-all ease-in-out duration-1500"
+            )}
+          />
+          <div
+            className={classNames(
+              "absolute inset-0 bg-gradient-to-l from-[#141414]/100 to-transparent to-80% opacity-0 group-hover:opacity-100",
+              "transition-all ease-in-out duration-1500"
+            )}
+          />
           <div className="absolute z-1 left-[14px] bottom-[14px] p-5 rounded-xl bg-white">
             <Image
               src={"peykan-left.svg"}

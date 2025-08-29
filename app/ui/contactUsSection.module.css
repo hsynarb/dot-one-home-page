@@ -1,0 +1,30 @@
+.lattice-pattern {
+  /* background: repeating-radial-gradient(
+      circle at 0 50%,
+      black 0,
+      black 1px,
+      transparent 1px,
+      transparent 50px
+    ),
+    repeating-radial-gradient(
+      circle at 100% 50%,
+      black 0,
+      black 1px,
+      transparent 1px,
+      transparent 50px
+    ); */
+  /* background-size: 200px 200px; */
+  /* background-color: white; */
+}
+
+.lattice-pattern {
+  background: radial-gradient(
+        circle at 100% 50%,
+        transparent 70%,
+        #ddd 91%,
+        transparent 72%
+      )
+      0 0 / 100px 200px repeat-x,
+    radial-gradient(circle at 0 50%, transparent 90%, #ddd 91%, transparent 92%)
+      50px 100px / 100px 200px repeat-x;
+}

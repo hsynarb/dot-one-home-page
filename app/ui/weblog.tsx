@@ -2,11 +2,14 @@ import Image from "next/image";
 import WeblogItemMedium from "./weblogItemMedium";
 import WeblogItemSmall from "./weblogItemSmall";
 import Title from "./title";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import useIsVisible from "@/app/hooks/useIsVisible";
 import classNames from "classnames";
+import { AnimationDurationContext } from "@/app/hooks/animationContext";
 
 export default function Weblog() {
+  const duration = useContext(AnimationDurationContext);
+
   const titleRef = useRef(null);
   const smallSectionRef = useRef(null);
   const isTitleVisible = useIsVisible(titleRef);
@@ -18,7 +21,7 @@ export default function Weblog() {
         title="وبلاگ"
         className={classNames(
           "mb-20",
-          "transform transition-all ease-in duration-900",
+          `transform transition-all ease-in-out duration-${duration}`,
           {
             "opacity-0 translate-x-[100%]": !isTitleVisible,
             "opacity-100 translate-x-0": isTitleVisible,
@@ -28,7 +31,7 @@ export default function Weblog() {
       <div className="flex gap-12">
         <WeblogItemMedium
           className={classNames(
-            "transform transition-all ease-in duration-900",
+            `transform transition-all ease-in-out duration-${duration}`,
             {
               "opacity-0 translate-x-[100%]": !isTitleVisible,
               "opacity-100 translate-x-0": isTitleVisible,
@@ -37,7 +40,7 @@ export default function Weblog() {
         />
         <WeblogItemMedium
           className={classNames(
-            "transform transition-all ease-in duration-900",
+            `transform transition-all ease-in-out duration-${duration}`,
             {
               "opacity-0 -translate-x-[100%]": !isTitleVisible,
               "opacity-100 translate-x-0": isTitleVisible,
@@ -49,7 +52,7 @@ export default function Weblog() {
         <WeblogItemSmall
           className={classNames(
             "flex-1",
-            "transform transition-all ease-in duration-900",
+            "transform transition-all ease-in-out duration-900",
             {
               "opacity-0 translate-x-[100%]": !isSmallSectionVisible,
               "opacity-100 translate-x-0": isSmallSectionVisible,
@@ -59,9 +62,9 @@ export default function Weblog() {
         <WeblogItemSmall
           className={classNames(
             "flex-1",
-            "transform transition-all ease-in duration-900",
+            `transform transition-all ease-in-out duration-${duration}`,
             {
-              "opacity-0 translate-y-[50px]": !isSmallSectionVisible,
+              "opacity-0 translate-y-[100%]": !isSmallSectionVisible,
               "opacity-100 translate-y-0": isSmallSectionVisible,
             }
           )}
@@ -69,7 +72,7 @@ export default function Weblog() {
         <div
           className={classNames(
             "flex flex-col gap-16 bg-[#F5F5F5] rounded-4xl p-12 flex-1 ",
-            "transform transition-all ease-in duration-900",
+            "transform transition-all ease-in-out duration-900",
             {
               "opacity-0 -translate-x-[100%]": !isSmallSectionVisible,
               "opacity-100 translate-x-0": isSmallSectionVisible,
@@ -90,7 +93,6 @@ export default function Weblog() {
               />
             </div>
           </div>
-
           <div className="relative flex-1 aspect-[352/80]">
             <div className="absolute left-[0%] top-0 w-[28%] aspect-[98/80]">
               <Image

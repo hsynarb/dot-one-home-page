@@ -2,23 +2,33 @@
 import classNames from "classnames";
 import Image from "next/image";
 import { useState } from "react";
+
+type LanguageOption = {
+  en: string;
+  fa: string;
+};
 interface DropDownProps {
+  options: string[] | Array<string[]>;
   name?: string;
   placeholder?: string;
   iconSrc?: string;
   label?: string;
+  defaultValue?: string;
+  type?: "normal" | "language";
 }
 export default function DropDown({
+  options,
   name,
   placeholder,
   iconSrc,
   label,
+  defaultValue,
+  type = "normal",
 }: DropDownProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <label htmlFor={name}>{label}:</label>
-
+      {label && <label htmlFor={name}>{label}:</label>}
       <div
         className={
           "relative flex gap-4 p-5 bg-white cursor-pointer rounded-xl text-sm border border-transparent hover:border-black"
@@ -38,7 +48,11 @@ export default function DropDown({
           type="text"
           name={name}
           placeholder={placeholder}
-          className="pr-4 border-r border-[#EBEBEB] flex-grow-1 cursor-pointer focus:outline-none"
+          defaultValue={defaultValue}
+          className={classNames(
+            "pr-4 flex-grow-1 cursor-pointer focus:outline-none",
+            iconSrc && "border-r border-[#EBEBEB]"
+          )}
         />
         <Image
           src={"/arrow-down.svg"}
@@ -48,19 +62,26 @@ export default function DropDown({
         />
         <div
           className={classNames(
-            "absolute top-[100%] right-0 flex flex-col p-5 mt-2 rounded-xl bg-white w-full",
-            { hidden: !isOpen }
+            "absolute top-[100%] right-0 flex flex-col p-5 rounded-xl bg-white w-full",
+            { hidden: !isOpen },
+            { "mt-2": type === "normal" }
           )}
         >
-          <div className="pr-12 py-4 hover:bg-[#f5f5f5] hover:rounded-xl">
-            {"موقعیت شغلی"}
-          </div>
-          <div className="pr-12 py-4 hover:bg-[#f5f5f5] hover:rounded-xl">
-            {"ایده و طرح"}
-          </div>
-          <div className="pr-12 py-4 hover:bg-[#f5f5f5] hover:rounded-xl">
-            {"انتقادات و پیشنهادات"}
-          </div>
+          {type === "normal"
+            ? options?.map((option, index) => (
+                <div
+                  key={index}
+                  className="pr-12 py-4 hover:bg-[#f5f5f5] hover:rounded-xl"
+                >
+                  {option}
+                </div>
+              ))
+            : options.map((option, index) => (
+                <div key={index} className="flex justify-between">
+                  <span>{option[0]}</span>
+                  <span>{option[1]}</span>
+                </div>
+              ))}
         </div>
       </div>
     </div>

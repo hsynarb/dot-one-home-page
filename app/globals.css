@@ -21,24 +21,15 @@
 }
 
 @layer utilities {
-  .custom-scrollbar {
-    scroll-margin-top: 40px;
-    scroll-padding-bottom: 40px;
-  }
   /* Custom scrollbar styles */
   .custom-scrollbar::-webkit-scrollbar {
     width: 12px; /* Adjust width as needed */
-    border: transparent 10px solid;
-    box-shadow: inset;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
     background: white; /* Track background color */
     border-radius: 40px;
-    border: transparent 10px solid;
-    box-shadow: inset;
-    scroll-margin-top: 20px;
-    scroll-padding-top: 20px;
+    margin: 4rem 0;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -55,4 +46,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }

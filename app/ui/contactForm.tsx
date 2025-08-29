@@ -9,6 +9,7 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({ className }: ContactFormProps) {
+  const categoryOptions = ["موقعیت شغلی", "ایده و طرح", "انتقادات و پیشنهادات"];
   return (
     <div
       className={classNames(
@@ -24,6 +25,7 @@ export default function ContactForm({ className }: ContactFormProps) {
           label={"نام"}
         />
         <DropDown
+          options={categoryOptions}
           iconSrc={"/category.svg"}
           name="name"
           placeholder={"دسته بندی را انتخاب کنید"}
