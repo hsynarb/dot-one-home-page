@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AnimationDurationContext } from "@/app/hooks/animationContext";
 
 interface DropDownProps {
   options: string[];
@@ -18,6 +19,7 @@ export default function DropDown({
   label,
   defaultValue,
 }: DropDownProps) {
+  const duration = useContext(AnimationDurationContext);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
@@ -56,7 +58,11 @@ export default function DropDown({
         <div
           className={classNames(
             "absolute top-[100%] right-0 flex flex-col p-5 mt-2 rounded-xl bg-white w-full",
-            { hidden: !isOpen }
+            `transition-all ease-in-out duration-${duration}`,
+            {
+              "opacity-0 pointer-events-none": !isOpen,
+              "opacity-100": isOpen,
+            }
           )}
         >
           {options?.map((option, index) => (

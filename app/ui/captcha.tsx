@@ -14,7 +14,12 @@ export default function Captcha({ className }: CaptchaProps) {
     >
       <label htmlFor="robot" className="flex gap-6">
         <input type="checkbox" id="robot" className="peer opacity-0 w-0 h-0" />
-        <div className="border-[2px] bg-white border-[#c1c1c1] rounded-[2px] w-12 h-12 peer-checked:bg-blue-600 peer-checked:before:content-['✓'] peer-checked:text-white"></div>
+        <div
+          className={classNames(
+            "border-[2px] bg-white border-[#c1c1c1] rounded-[2px] w-12 h-12",
+            "peer-checked:bg-blue-600 peer-checked:before:content-['✓'] before:pr-1 peer-checked:text-white"
+          )}
+        />
         <span className="">{"من ربات نیستم"}</span>
       </label>
       <Image src={"/captcha.png"} width={56} height={59} alt="captcha logo" />

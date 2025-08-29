@@ -16,7 +16,7 @@ export default function Input({
     <div>
       <label htmlFor={name}>{label}:</label>
 
-      <div className="flex gap-4 p-5 bg-white rounded-xl text-sm border border-transparent hover:border-black">
+      <div className="flex gap-4 p-5 bg-white rounded-xl text-sm cursor-pointer border border-transparent hover:border-black">
         {iconSrc && (
           <Image src={iconSrc} width={18} height={18} alt="icon" className="" />
         )}
@@ -24,7 +24,7 @@ export default function Input({
           type="text"
           name={name}
           placeholder={placeholder}
-          className="pr-4 border-r border-[#EBEBEB]"
+          className="flex-grow-1 pr-4 border-r border-[#EBEBEB] cursor-pointer focus:outline-none"
         />
       </div>
     </div>
