@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Styles from "./header.module.css";
 import classNames from "classnames";
-import DropDown from "./dropDown";
 import LanguageDropDown from "./languageDropdown";
 
 export default function Header() {
