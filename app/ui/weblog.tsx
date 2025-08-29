@@ -30,6 +30,7 @@ export default function Weblog() {
       />
       <div className="flex gap-12">
         <WeblogItemMedium
+          imgSrc="/city-pic.png"
           className={classNames(
             `transform transition-all ease-in-out duration-${duration}`,
             {
@@ -39,6 +40,7 @@ export default function Weblog() {
           )}
         />
         <WeblogItemMedium
+          imgSrc="/airport-large.png"
           className={classNames(
             `transform transition-all ease-in-out duration-${duration}`,
             {
@@ -50,6 +52,7 @@ export default function Weblog() {
       </div>
       <div ref={smallSectionRef} className="flex gap-12 mt-12">
         <WeblogItemSmall
+          imgSrc="/netflix.png"
           className={classNames(
             "flex-1",
             "transform transition-all ease-in-out duration-900",
@@ -60,6 +63,7 @@ export default function Weblog() {
           )}
         />
         <WeblogItemSmall
+          imgSrc="/car-inside-large.png"
           className={classNames(
             "flex-1",
             `transform transition-all ease-in-out duration-${duration}`,

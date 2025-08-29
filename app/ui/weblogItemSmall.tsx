@@ -6,8 +6,13 @@ import { RefObject } from "react";
 interface WeblogItemSmall {
   className?: string;
   ref?: RefObject<HTMLDivElement>;
+  imgSrc: string;
 }
-export default function WeblogItemSmall({ className, ref }: WeblogItemSmall) {
+export default function WeblogItemSmall({
+  className,
+  ref,
+  imgSrc,
+}: WeblogItemSmall) {
   return (
     <div
       ref={ref}
@@ -36,7 +41,7 @@ export default function WeblogItemSmall({ className, ref }: WeblogItemSmall) {
       </p>
       <div className="relative flex-shrink-0 flex-grow-1 aspect-[364/171]  mt-[-18px]">
         <Image
-          src={"/netflix.png"}
+          src={imgSrc}
           fill
           alt="netflix on a screen"
           className="object-cover"

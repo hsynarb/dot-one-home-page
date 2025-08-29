@@ -4,9 +4,13 @@ import classNames from "classnames";
 
 interface WeblogItemMediumProps {
   className?: string;
+  imgSrc: string;
 }
 
-export default function WeblogItemMedium({ className }: WeblogItemMediumProps) {
+export default function WeblogItemMedium({
+  className,
+  imgSrc,
+}: WeblogItemMediumProps) {
   return (
     <div
       className={classNames(
@@ -52,7 +56,7 @@ export default function WeblogItemMedium({ className }: WeblogItemMediumProps) {
         </div>
         <div className="relative flex-shrink-0 w-[242px] h-[232px]">
           <Image
-            src="/city-pic.png"
+            src={imgSrc}
             alt="city picture"
             fill
             className="object-cover rounded-lg"

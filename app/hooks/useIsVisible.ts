@@ -1,4 +1,4 @@
-import { Ref, Reference, RefObject, useEffect, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 
 export default function useIsVisible<T extends HTMLElement>(
   ref: RefObject<T | null>

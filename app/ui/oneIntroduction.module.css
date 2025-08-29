@@ -3,7 +3,6 @@
   height: 180px;
   background: rgba(0, 0, 0, 0.1);
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  /* clip-path: polygon(10% 40%, 25% 0%, 75% 0%, 90% 40%, 80% 50%, 20% 50%); */
   position: absolute;
   z-index: 3;
 }
@@ -20,7 +19,6 @@
   right: 1px;
 }
 
-/* positions */
 .hex.left {
   left: 1%;
 }

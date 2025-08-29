@@ -23,7 +23,7 @@ export default function OneIntroduction() {
         <div
           ref={oneRef}
           className={classNames(
-            `flex flex-col transform transition-all ease-in-out duration-${duration}`,
+            `flex-2 flex flex-col transform transition-all ease-in-out duration-${duration}`,
             {
               "opacity-0 translate-x-[100%]": !isOneVisible,
               "opacity-100 translate-x-0": isOneVisible,
@@ -38,7 +38,7 @@ export default function OneIntroduction() {
         <p
           ref={introRef}
           className={classNames(
-            `text-sm text-justify transform transition-all ease-in-out duration-${duration}`,
+            `flex-6 text-sm text-justify transform transition-all ease-in-out duration-${duration}`,
             {
               "opacity-0 -translate-x-[100%]": !isOneVisible,
               "opacity-100 translate-x-0": isOneVisible,

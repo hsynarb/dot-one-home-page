@@ -3,18 +3,13 @@ import classNames from "classnames";
 import Image from "next/image";
 import { useState } from "react";
 
-type LanguageOption = {
-  en: string;
-  fa: string;
-};
 interface DropDownProps {
-  options: string[] | Array<string[]>;
+  options: string[];
   name?: string;
   placeholder?: string;
   iconSrc?: string;
   label?: string;
   defaultValue?: string;
-  type?: "normal" | "language";
 }
 export default function DropDown({
   options,
@@ -23,7 +18,6 @@ export default function DropDown({
   iconSrc,
   label,
   defaultValue,
-  type = "normal",
 }: DropDownProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -62,26 +56,18 @@ export default function DropDown({
         />
         <div
           className={classNames(
-            "absolute top-[100%] right-0 flex flex-col p-5 rounded-xl bg-white w-full",
-            { hidden: !isOpen },
-            { "mt-2": type === "normal" }
+            "absolute top-[100%] right-0 flex flex-col p-5 mt-2 rounded-xl bg-white w-full",
+            { hidden: !isOpen }
           )}
         >
-          {type === "normal"
-            ? options?.map((option, index) => (
-                <div
-                  key={index}
-                  className="pr-12 py-4 hover:bg-[#f5f5f5] hover:rounded-xl"
-                >
-                  {option}
-                </div>
-              ))
-            : options.map((option, index) => (
-                <div key={index} className="flex justify-between">
-                  <span>{option[0]}</span>
-                  <span>{option[1]}</span>
-                </div>
-              ))}
+          {options?.map((option, index) => (
+            <div
+              key={index}
+              className="pr-12 py-4 hover:bg-[#f5f5f5] hover:rounded-xl"
+            >
+              {option}
+            </div>
+          ))}
         </div>
       </div>
     </div>

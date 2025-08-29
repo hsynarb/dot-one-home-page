@@ -5,7 +5,6 @@ import ContactUsIcon from "./contactUsIcon";
 import { useContext, useRef } from "react";
 import useIsVisible from "@/app/hooks/useIsVisible";
 import classNames from "classnames";
-import Styles from "./contactUsSection.module.css";
 import { AnimationDurationContext } from "@/app/hooks/animationContext";
 
 export default function ContactUsSection() {
